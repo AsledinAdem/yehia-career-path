@@ -3,8 +3,8 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="bg-slate-950 text-slate-400 h-screen  w-full px-5">
-      <div className="flex flex-col justify-center gap-5 mt-20 mx-auto max-w-250">
+    <div className=" h-screen  w-full px-5">
+      <div className="flex flex-col justify-center gap-5 mt-20 mx-auto max-w-325">
         <h1 className="text-3xl font-semibold text-slate-200">
           Hello <span className="text-amber-500">Yehia,</span>
         </h1>

@@ -1,33 +1,45 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import profileImage from "../../public/profile_image.png";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [clicked, setClicked] = useState("Home"); //Home, Plan, Opportunities, Dashboar
+
   return (
-    <div className="bg-slate-900 text-slate-500 w-full  py-3">
-      <div className="flex items-center justify-between mx-auto max-w-250">
+    <div className="bg-slate-900 text-slate-500 border-b border-slate-800 w-full  py-3">
+      <div className="flex items-center justify-between mx-auto max-w-325">
         <nav className="flex items-center space-x-5 px-5 ">
           <Link
             href="/"
-            className="hover:text-amber-400 transition-colors duration-300"
+            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Home" ? "text-amber-400" : ""} `}
+            onClick={() => setClicked("Home")}
           >
             Home
           </Link>
-          <Link
-            href="/plan"
-            className="hover:text-amber-400 transition-colors duration-300"
-          >
-            Plan
-          </Link>
+
+          <div>
+            <Link
+              href="/plan"
+              className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Plan" ? "text-amber-400" : ""} `}
+              onClick={() => setClicked("Plan")}
+            >
+              Plan
+            </Link>
+            {/* <div className="border-b-2 border-amber-500"></div> */}
+          </div>
           <Link
             href="/opportunities"
-            className="hover:text-amber-400 transition-colors duration-300"
+            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Opportunities" ? "text-amber-400" : ""} `}
+            onClick={() => setClicked("Opportunities")}
           >
             Opportunities
           </Link>
           <Link
             href="/dashboard"
-            className="hover:text-amber-400 transition-colors duration-300"
+            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Dashboard" ? "text-amber-400" : ""} `}
+            onClick={() => setClicked("Dashboard")}
           >
             Dashboard
           </Link>
