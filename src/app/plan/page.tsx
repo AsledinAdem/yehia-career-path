@@ -1,8 +1,8 @@
 import React from "react";
 
-const page = () => {
+const plan = () => {
   return (
-    <div className="h-screen mt-20 mx-auto max-w-325 flex flex-col item-center space-y-30 px-10">
+    <div className="h-screen mt-10 mx-auto max-w-300 flex flex-col item-center space-y-30 px-10">
       {/* milston bar */}
       <div className="w-full flex items-center justify-between max-w-92.5 md:max-w-250 mx-auto">
         <div className="rounded-full  border-2 border-slate-500  w-10 h-10 flex items-center justify-center text-slate-400 relative ">
@@ -52,4 +52,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default plan;

@@ -2,10 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import profileImage from "../../public/profile_image.png";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+// import { useState } from "react";
 
 const Navbar = () => {
-  const [clicked, setClicked] = useState("Home"); //Home, Plan, Opportunities, Dashboar
+  // const [clicked, setClicked] = useState("Home"); //Home, Plan, Opportunities, Dashboar
+  const pathname = usePathname();
 
   return (
     <div className="bg-slate-900 text-slate-500 border-b border-slate-800 w-full  py-3">
@@ -13,8 +15,7 @@ const Navbar = () => {
         <nav className="flex items-center space-x-5 px-5 ">
           <Link
             href="/"
-            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Home" ? "text-amber-400" : ""} `}
-            onClick={() => setClicked("Home")}
+            className={`hover:text-amber-400 transition-colors duration-300 ${pathname === "/" ? "text-amber-400" : ""} `}
           >
             Home
           </Link>
@@ -22,8 +23,7 @@ const Navbar = () => {
           <div>
             <Link
               href="/plan"
-              className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Plan" ? "text-amber-400" : ""} `}
-              onClick={() => setClicked("Plan")}
+              className={`hover:text-amber-400 transition-colors duration-300 ${pathname === "/plan" ? "text-amber-400" : ""} `}
             >
               Plan
             </Link>
@@ -31,15 +31,13 @@ const Navbar = () => {
           </div>
           <Link
             href="/opportunities"
-            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Opportunities" ? "text-amber-400" : ""} `}
-            onClick={() => setClicked("Opportunities")}
+            className={`hover:text-amber-400 transition-colors duration-300 ${pathname === "/opportunities" ? "text-amber-400" : ""} `}
           >
             Opportunities
           </Link>
           <Link
             href="/dashboard"
-            className={`hover:text-amber-400 transition-colors duration-300 ${clicked === "Dashboard" ? "text-amber-400" : ""} `}
-            onClick={() => setClicked("Dashboard")}
+            className={`hover:text-amber-400 transition-colors duration-300 ${pathname === "/dashboard" ? "text-amber-400" : ""} `}
           >
             Dashboard
           </Link>
