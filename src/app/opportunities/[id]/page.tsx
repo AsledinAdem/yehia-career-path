@@ -1,3 +1,4 @@
+import Link from "next/link.js";
 import opportunities from "../../../data/opportunities.js";
 
 const singleOpportunities = async ({
@@ -7,15 +8,12 @@ const singleOpportunities = async ({
 }) => {
   const opportunityId = await params;
   return (
-    <div className="h-screen w-full">
-      <div className="flex flex-wrap gap-5 mt-10 w-full px-5">
+    <div className="h-screen w-full px-7 md:px-0  ">
+      <div className="flex flex-col gap-5 mt-10 p-5 bg-slate-800 rounded-lg border border-slate-500">
         {opportunities.map(
           (select) =>
             opportunityId.id === select.id && (
-              <div
-                className="flex flex-col gap-5 bg-slate-800/50 rounded-lg shadow-lg text-slate-400 p-5  transition-color duration-300 w-full border border-slate-700/50 "
-                key={select.id}
-              >
+              <div className="flex flex-col gap-5  " key={select.id}>
                 <h1 className="text-lg text-slate-300 font-semibold">
                   {select.title}
                 </h1>
@@ -25,6 +23,20 @@ const singleOpportunities = async ({
               </div>
             ),
         )}
+        <div className="flex items-center gap-10">
+          <Link
+            href={"/opportunities"}
+            className="bg-red-400 text-red-900 rounded-lg h-10 w-35 cursor-pointer hover:border border-red-400 hover:text-red-400 hover:bg-slate-800 transition-colors duration-300 flex items-center justify-center"
+          >
+            Cancel
+          </Link>
+          <Link
+            href={"/dashboard"}
+            className="bg-slate-300 text-slate-700 rounded-lg h-10 w-35 cursor-pointer  hover:bg-slate-400 hover:text-slate-800 transition-colors duration-300 flex items-center justify-center"
+          >
+            add application
+          </Link>
+        </div>
       </div>
     </div>
   );
